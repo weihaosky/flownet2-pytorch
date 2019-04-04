@@ -8,6 +8,8 @@ import numpy as np
 from glob import glob
 import utils.frame_utils as frame_utils
 
+import IPython
+
 from scipy.misc import imread, imresize
 
 class StaticRandomCrop(object):
@@ -52,6 +54,8 @@ class MpiSintel(data.Dataset):
             fprefix = fbase[:-8]
             fnum = int(fbase[-8:-4])
 
+            IPython.embed()
+
             img1 = join(image_root, fprefix + "%04d"%(fnum+0) + '.png')
             img2 = join(image_root, fprefix + "%04d"%(fnum+1) + '.png')
 
@@ -63,6 +67,7 @@ class MpiSintel(data.Dataset):
 
         self.size = len(self.image_list)
 
+        IPython.embed()
         self.frame_size = frame_utils.read_gen(self.image_list[0][0]).shape
 
         if (self.render_size[0] < 0) or (self.render_size[1] < 0) or (self.frame_size[0]%64) or (self.frame_size[1]%64):

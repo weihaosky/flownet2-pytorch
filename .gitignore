@@ -5,3 +5,11 @@ _ext
 work
 work/*
 _ext/
+
+.idea
+dataset
+model
+output
+networks/channelnorm_package
+networks/correlation_package
+networks/resample2d_package
